@@ -1,41 +1,29 @@
-# kiberjwt
+# KiberJWT
 
-`kiberjwt` is a lightweight Python CLI for decoding JWTs, checking common
-security misconfigurations, optionally verifying signatures, and exporting an
-audit report as JSON.
+`KiberJWT` is a lightweight Python CLI tool for decoding JSON Web Tokens (JWT), auditing common security misconfigurations, verifying cryptographic signatures, and exporting structured JSON audit reports.
+
+![KiberJWT CLI Demo]<img width="2525" height="1174" alt="image" src="https://github.com/user-attachments/assets/c99f55fe-9c24-4073-b9fe-718c04c13a3a" />
+
+
+## Features
+
+- Side-by-side decoded **Header** and **Payload** inspection
+- Automated security checks (`Algorithm`, `Expiration`, `Issued-at`, `Lifetime`, `Sensitive data`, `Signature`)
+- Optional signature verification for symmetric (`--secret`) and asymmetric (`--public-key`) algorithms
+- JSON report export (`--export`) for pentest documentation and CI/CD pipelines
 
 ## Installation
 
-Requires Python 3.10 or later.
+Requires **Python 3.10** or later. Setting up an isolated virtual environment (`venv`) is recommended:
 
 ```bash
-python -m pip install -r requirements.txt
-```
+git clone ![Uploading image.png…]()
+https://github.com/sheyxov/KiberJWT.git
+cd KiberJWT
 
-Run it from this directory with `python main.py`.
+# Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
 
-## Usage
-
-Inspect a token without verifying its signature:
-
-```bash
-python main.py 'eyJhbGciOi...'
-```
-
-Verify an HMAC token with its shared secret:
-
-```bash
-python main.py 'eyJhbGciOi...' --secret 'your-high-entropy-secret'
-```
-
-Verify an RSA/ECDSA token with a PEM public key, and export the report:
-
-```bash
-python main.py 'eyJhbGciOi...' --public-key ./public.pem --export report.json
-```
-
-The terminal view shows the decoded header and payload side by side, followed
-by color-coded audit findings. Unverified header and payload claims are
-untrusted input; use `--secret` or `--public-key` when signature integrity
-needs to be checked. Reports can contain token claims, so store exported JSON
-securely.
+# Install dependencies
+pip install -r requirements.txt
