@@ -17,8 +17,7 @@
 Requires **Python 3.10** or later. Setting up an isolated virtual environment (`venv`) is recommended:
 
 ```bash
-git clone ![Uploading image.png…]()
-https://github.com/sheyxov/KiberJWT.git
+git clone https://github.com/sheyxov/KiberJWT.git
 cd KiberJWT
 
 # Create and activate virtual environment
